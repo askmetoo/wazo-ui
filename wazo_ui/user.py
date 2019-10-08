@@ -47,8 +47,12 @@ class UserUI(UserMixin):
 
     def set_tenant(self, tenant=None):
         session['instance'] = {}
-        session['instance'] = {'remote_host': 'localhost'}
         session['instance']['wazo_tenant'] = tenant
+
+    def set_instance(self, config):
+        session['instance']['host'] = config.get('host', 'localhost')
+        session['instance']['port'] = config.get('port', 443)
+        session['instance']['token'] = self._token
 
     def get_instance(self):
         return session['instance']

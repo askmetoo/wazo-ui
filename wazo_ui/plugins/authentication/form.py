@@ -57,5 +57,6 @@ class LoginForm(FlaskForm):
 
         self.user = UserUI(response['token'], response['auth_id'])
         self.user.set_tenant(response['metadata']['tenant_uuid'])
+        self.user.set_instance(app.config['auth'])
 
         return True

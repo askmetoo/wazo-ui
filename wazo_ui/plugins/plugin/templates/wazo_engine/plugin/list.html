@@ -76,9 +76,11 @@
   <script src="{{ url_for('.static', filename='js/ladda.min.js') }}"></script>
   <script src="{{ url_for('.static', filename='js/plugin.js') }}"></script>
   <script>
-    connect("{{ current_user.get_instance_config().host }}",
-            "{{ current_user.get_instance_config().port }}",
-	    "{{ current_user.get_instance_config().token }}");
+    connect(
+      "{{ current_user.get_instance().host }}",
+      "{{ current_user.get_instance().port }}",
+      "{{ current_user.get_instance().token }}"
+    );
   </script>
 {% endblock %}
 
