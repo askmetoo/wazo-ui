@@ -7,13 +7,13 @@ $(document).ready(function() {
     search_plugins();
 });
 
-function connect(host, port, token) {
+function connect(host, port, prefix_url, token) {
     if (socket != null) {
         console.log("socket already connected");
         return;
     }
 
-    var ws_url = "wss://" + host + ":" + port + "/api/websocketd/?token=" + token;
+    var ws_url = "wss://" + host + ":" + port + prefix_url + "/?token=" + token;
     socket = new WebSocket(ws_url);
     socket.onclose = function(event) {
         socket = null;

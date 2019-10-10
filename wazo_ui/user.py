@@ -50,8 +50,7 @@ class UserUI(UserMixin):
         session['instance']['wazo_tenant'] = tenant
 
     def set_instance(self, config):
-        session['instance']['host'] = config.get('host', 'localhost')
-        session['instance']['port'] = config.get('port', 443)
+        session['instance']['config'] = config
         session['instance']['token'] = self._token
 
     def get_instance(self):

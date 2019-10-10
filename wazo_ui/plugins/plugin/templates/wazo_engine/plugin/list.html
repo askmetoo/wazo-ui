@@ -77,8 +77,9 @@
   <script src="{{ url_for('.static', filename='js/plugin.js') }}"></script>
   <script>
     connect(
-      "{{ current_user.get_instance().host }}",
-      "{{ current_user.get_instance().port }}",
+      "{{ current_user.get_instance().config.websocketd.host }}",
+      "{{ current_user.get_instance().config.websocketd.port }}",
+      "{{ current_user.get_instance().config.websocketd.prefix_url }}",
       "{{ current_user.get_instance().token }}"
     );
   </script>

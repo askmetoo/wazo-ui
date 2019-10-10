@@ -62,6 +62,10 @@ _DEFAULT_CONFIG = {
         'port': 9300,
         'verify_certificate': '/usr/share/xivo-certs/server.crt',
     },
+    'websocketd': {
+        'host': 'localhost',
+        'port': 9502,
+    },
     'enabled_plugins': {
         'access_feature': True,
         'authentication': True,
