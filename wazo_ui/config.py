@@ -63,9 +63,9 @@ _DEFAULT_CONFIG = {
         'verify_certificate': '/usr/share/xivo-certs/server.crt',
     },
     'websocketd': {
-        'host': 'localhost',
-        'port': 9502,
-        'prefix_url': '',
+        'host': '',
+        'port': 443,
+        'prefix_url': '/api/websocketd',
     },
     'enabled_plugins': {
         'access_feature': True,
