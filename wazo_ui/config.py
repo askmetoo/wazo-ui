@@ -65,6 +65,7 @@ _DEFAULT_CONFIG = {
     'websocketd': {
         'host': 'localhost',
         'port': 9502,
+        'prefix_url': '',
     },
     'enabled_plugins': {
         'access_feature': True,
