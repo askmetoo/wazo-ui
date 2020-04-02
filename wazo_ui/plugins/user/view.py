@@ -1,4 +1,4 @@
-# Copyright 2017-2019 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2017-2020 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0+
 
 from random import randint
@@ -229,6 +229,7 @@ class UserView(IndexAjaxHelperViewMixin, BaseIPBXHelperView):
         resource['funckeys'] = self._map_form_to_resource_funckey(form)
         resource['call_permissions'] = [{'id': call_permission_id} for call_permission_id in
                                         form.call_permission_ids.data]
+        resource['music_on_hold'] = form.music_on_hold.data or None
 
         return resource
 
@@ -262,7 +263,7 @@ class UserView(IndexAjaxHelperViewMixin, BaseIPBXHelperView):
                 result['endpoint_sip'] = {
                     'id': line['endpoint_sip_id'],
                     'options': [
-                        ('transport', 'wss'),
+                        ('transport', 'transport-wss'),  # TODO(pc-m) use a valid transport of type wss.
                         ('directmedia', 'no'),
                         ('dtlsverify', 'no'),
                         ('dtlscertfile', '/usr/share/xivo-certs/server.crt'),
